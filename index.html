@@ -1,0 +1,840 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026年4月新能源行业新闻汇总</title>
+  <style>
+    :root {
+      --blue: #002fa7;
+      --blue-weak: #edf3ff;
+      --ink: #151b2b;
+      --text: #2d3748;
+      --muted: #687383;
+      --line: #dce2ed;
+      --paper: #ffffff;
+      --ground: #f5f7fb;
+      --green: #0d7d6b;
+      --gold: #a87616;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--ground);
+      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", Arial, sans-serif;
+      line-height: 1.78;
+    }
+
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    button { font: inherit; }
+
+    .progress {
+      position: fixed;
+      z-index: 50;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: var(--blue);
+    }
+
+    .shell {
+      max-width: 820px;
+      margin: 0 auto;
+      background: var(--paper);
+      min-height: 100vh;
+      box-shadow: 0 0 0 1px rgba(18, 29, 51, .04);
+    }
+
+    header {
+      padding: 32px 20px 22px;
+      border-top: 6px solid var(--blue);
+      border-bottom: 1px solid var(--line);
+      background: var(--paper);
+    }
+
+    .eyebrow {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 14px;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 2px;
+      background: var(--blue);
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", SimSun, serif;
+      font-size: clamp(32px, 9vw, 54px);
+      line-height: 1.16;
+      letter-spacing: 0;
+      font-weight: 800;
+    }
+
+    .deck {
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .dateline {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .nav {
+      position: sticky;
+      z-index: 40;
+      top: 3px;
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding: 9px 12px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(10px);
+      scrollbar-width: none;
+    }
+
+    .nav::-webkit-scrollbar { display: none; }
+
+    .nav a {
+      flex: 0 0 auto;
+      min-height: 34px;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: var(--paper);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .nav a.active {
+      border-color: var(--blue);
+      color: var(--blue);
+      background: var(--blue-weak);
+      text-decoration: none;
+    }
+
+    main { padding: 0 16px 40px; }
+
+    section {
+      padding: 34px 0 2px;
+      scroll-margin-top: 62px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--blue);
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", SimSun, serif;
+      font-size: 23px;
+      line-height: 1.28;
+      letter-spacing: 0;
+    }
+
+    .section-num {
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .story {
+      padding: 18px 0 20px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .story:last-child { border-bottom: 0; }
+
+    .story-media {
+      margin: 0 0 14px;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #eef1f6;
+    }
+
+    .story-media img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 430px;
+      object-fit: cover;
+    }
+
+    .story-media figcaption {
+      padding: 8px 10px;
+      color: var(--muted);
+      background: #f8f9fc;
+      border-top: 1px solid var(--line);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .story h3 {
+      margin: 0 0 8px;
+      color: var(--ink);
+      font-size: 20px;
+      line-height: 1.42;
+      letter-spacing: 0;
+    }
+
+    .date {
+      display: inline-flex;
+      margin-bottom: 10px;
+      padding: 3px 8px;
+      border-left: 3px solid var(--blue);
+      color: var(--muted);
+      background: var(--blue-weak);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .story p {
+      margin: 0;
+      color: var(--text);
+      font-size: 16px;
+    }
+
+    .source {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+      word-break: break-word;
+    }
+
+    .source a { font-weight: 700; }
+
+    .more {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 12px;
+      padding: 0;
+      border: 0;
+      color: var(--blue);
+      background: transparent;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .story.collapsed .story-text {
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .market-panel {
+      margin-top: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .market-tabs {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding: 10px;
+      border-bottom: 1px solid var(--line);
+      scrollbar-width: none;
+    }
+
+    .market-tabs::-webkit-scrollbar { display: none; }
+
+    .market-tabs button {
+      flex: 0 0 auto;
+      min-height: 34px;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: #fff;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .market-tabs button.active {
+      border-color: var(--blue);
+      color: #fff;
+      background: var(--blue);
+    }
+
+    .market-body {
+      padding: 14px;
+    }
+
+    .chart-title {
+      margin: 0 0 4px;
+      color: var(--ink);
+      font-size: 18px;
+      line-height: 1.35;
+    }
+
+    .chart-desc {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 84px 1fr 82px;
+      align-items: center;
+      gap: 10px;
+      margin: 12px 0;
+      font-size: 13px;
+    }
+
+    .bar-label { color: var(--ink); }
+    .bar-value { color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; }
+
+    .bar-track {
+      position: relative;
+      height: 12px;
+      border-radius: 999px;
+      background: #e9edf5;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 0;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--blue), #2b64d8);
+      transition: width 900ms cubic-bezier(.2,.75,.2,1);
+    }
+
+    .market-panel.in-view .bar-fill { width: var(--w); }
+
+    .ring-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .ring {
+      min-height: 138px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcff;
+    }
+
+    .ring svg { display: block; width: 86px; height: 86px; margin: 0 auto 8px; }
+    .ring .track { fill: none; stroke: #e6ebf4; stroke-width: 10; }
+    .ring .meter {
+      fill: none;
+      stroke: var(--blue);
+      stroke-width: 10;
+      stroke-linecap: round;
+      stroke-dasharray: 251;
+      stroke-dashoffset: 251;
+      transform: rotate(-90deg);
+      transform-origin: center;
+      transition: stroke-dashoffset 900ms cubic-bezier(.2,.75,.2,1);
+    }
+    .market-panel.in-view .ring .meter { stroke-dashoffset: var(--offset); }
+    .ring b { display: block; color: var(--ink); text-align: center; font-size: 17px; }
+    .ring span { display: block; color: var(--muted); text-align: center; font-size: 12px; }
+
+    .timeline {
+      margin-top: 18px;
+      padding-left: 18px;
+      border-left: 2px solid var(--line);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 0 0 18px 14px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -25px;
+      top: 7px;
+      width: 10px;
+      height: 10px;
+      border: 2px solid var(--blue);
+      border-radius: 50%;
+      background: #fff;
+    }
+
+    .timeline-item b { color: var(--blue); }
+    .timeline-item span { display: block; color: var(--ink); font-size: 14px; line-height: 1.55; }
+
+    .to-top {
+      position: fixed;
+      right: 14px;
+      bottom: 18px;
+      z-index: 45;
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--blue);
+      background: rgba(255,255,255,.96);
+      box-shadow: 0 8px 24px rgba(0, 47, 167, .12);
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    .to-top.show { display: block; }
+
+    @media (min-width: 760px) {
+      header { padding: 44px 34px 30px; }
+      main { padding: 0 34px 54px; }
+      .story { padding: 24px 0 26px; }
+      .story.has-image {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        gap: 22px;
+        align-items: start;
+      }
+      .story.has-image .story-media { margin: 0; }
+      .story h3 { font-size: 21px; }
+      .market-body { padding: 20px; }
+    }
+
+    @media (max-width: 520px) {
+      .bar-row {
+        grid-template-columns: 74px 1fr;
+      }
+      .bar-value {
+        grid-column: 2;
+        text-align: left;
+        margin-top: -6px;
+      }
+      .ring-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+  <div class="shell">
+    <header id="top">
+      <div class="eyebrow">新能源行业月度报道</div>
+      <h1>2026年4月新能源行业新闻汇总</h1>
+      <p class="deck">聚焦风电、光伏、水光互补、沙戈荒大基地、分布式能源、特高压输电及海上风电产业链动态。</p>
+      <p class="dateline">截止日期：2026年5月8日</p>
+    </header>
+
+    <nav class="nav" aria-label="新闻栏目">
+      <a href="#policy">政策</a>
+      <a href="#market">装机</a>
+      <a href="#tech">技术</a>
+      <a href="#projects">项目</a>
+      <a href="#global">国际</a>
+      <a href="#impact">社会</a>
+      <a href="#supply">供应链</a>
+    </nav>
+
+    <main>
+      <section id="policy" data-section="政策与行业动向">
+        <div class="section-head"><h2>一.政策与行业动向</h2><span class="section-num">01</span></div>
+      </section>
+
+      <section id="market" data-section="装机量与市场趋势">
+        <div class="section-head"><h2>二.装机量与市场趋势</h2><span class="section-num">02</span></div>
+        <div class="market-panel" id="marketPanel">
+          <div class="market-tabs" role="tablist" aria-label="装机量与市场趋势图表">
+            <button type="button" class="active" data-chart="capacity">累计装机</button>
+            <button type="button" data-chart="added">新增并网</button>
+            <button type="button" data-chart="projects">项目结构</button>
+            <button type="button" data-chart="green">绿证</button>
+          </div>
+          <div class="market-body">
+            <h3 class="chart-title" id="chartTitle"></h3>
+            <p class="chart-desc" id="chartDesc"></p>
+            <div id="chartBody"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="tech" data-section="技术发展突破与创新">
+        <div class="section-head"><h2>三.技术发展突破与创新</h2><span class="section-num">03</span></div>
+      </section>
+
+      <section id="projects" data-section="重大项目开工与投资动态">
+        <div class="section-head"><h2>四.重大项目开工与投资动态</h2><span class="section-num">04</span></div>
+      </section>
+
+      <section id="global" data-section="国际能源市场与全球动向">
+        <div class="section-head"><h2>五.国际能源市场与全球动向</h2><span class="section-num">05</span></div>
+      </section>
+
+      <section id="impact" data-section="社会与环境影响">
+        <div class="section-head"><h2>六.社会与环境影响</h2><span class="section-num">06</span></div>
+      </section>
+
+      <section id="supply" data-section="海上风电供应链与企业动态">
+        <div class="section-head"><h2>七.海上风电供应链与企业动态</h2><span class="section-num">07</span></div>
+      </section>
+    </main>
+
+  </div>
+
+  <button class="to-top" id="toTop" type="button" aria-label="返回顶部">↑</button>
+
+  <script>
+    const stories = [
+      {
+        section: "policy",
+        title: "李强主持国务院第十九次专题学习，部署加快建设新型能源体系",
+        date: "4月20日",
+        text: "国务院以“统筹能源安全和绿色低碳转型，加快建设新型能源体系”为主题进行第十九次专题学习。李强指出，要加快推进西北地区风电光伏、西南地区水电、东部地区海上风电等清洁能源基地建设，大力发展分布式光伏、分散式风电，加快推进新型电网建设，深入推进电力领域全国统一大市场建设。",
+        source: "新华网",
+        url: "https://www.xinhuanet.com/politics/20260420/a07d3333ab3f454d8e8104c9588cbb63/c.html",
+        image: "https://www.xinhuanet.com/politics/20260420/a07d3333ab3f454d8e8104c9588cbb63/sx9juYzv87CHuDbL.jpg",
+        caption: "原图来源：新华网"
+      },
+      {
+        section: "policy",
+        title: "中办、国办印发《碳达峰碳中和综合评价考核办法》",
+        date: "4月23日",
+        text: "中共中央办公厅、国务院办公厅印发《碳达峰碳中和综合评价考核办法》，明确自2026年度起，对各省级党委和政府落实碳达峰碳中和目标任务、推进经济社会发展全面绿色转型情况开展评价考核。控制指标包括碳排放总量、碳排放强度降低、煤炭消费总量、石油消费总量、非化石能源消费占比等。",
+        source: "生态环境部转中国政府网/新华社",
+        url: "https://www.mee.gov.cn/zcwj/zyygwj/202604/t20260423_1149959.shtml",
+        image: "https://www.mee.gov.cn/zcwj/zyygwj/202604/W020260423731930258897.jpg",
+        caption: "原图来源：生态环境部"
+      },
+      {
+        section: "policy",
+        title: "国家能源局提出推动“新能源+储能+电网+市场”集成融合",
+        date: "4月27日",
+        text: "国家能源局表示，将结合“十五五”电力规划编制，统筹优化电源、调节性资源、电网网架结构和电力流向，加快建设全国统一电力市场体系，支撑年均新增2亿千瓦以上新能源合理消纳需求。相关工作包括统筹“沙戈荒”新能源基地外送与就地消纳、优化水风光基地一体化开发消纳、推动海上风电规范有序开发消纳、拓展分布式新能源开发与消纳空间。",
+        source: "国家能源局",
+        url: "https://www.nea.gov.cn/20260427/09f3dbc015664a74b9cbe2444c4891bf/c.html",
+        image: "https://www.nea.gov.cn/20260427/09f3dbc015664a74b9cbe2444c4891bf/586bbfa81e3647a0b7443d14b59c99d2.jpg",
+        caption: "原图来源：国家能源局"
+      },
+      {
+        section: "market",
+        title: "一季度全国可再生能源新增装机5893万千瓦",
+        date: "4月27日",
+        text: "国家能源局数据显示，2026年一季度，全国可再生能源新增装机5893万千瓦，占新增装机的70%。截至3月底，全国可再生能源装机达到23.95亿千瓦，同比增长22%，约占全国总装机的60.4%。其中，风电装机6.55亿千瓦，光伏发电装机12.41亿千瓦，风电太阳能发电装机合计18.98亿千瓦。",
+        source: "国家能源局",
+        url: "https://www.nea.gov.cn/20260427/09f3dbc015664a74b9cbe2444c4891bf/c.html"
+      },
+      {
+        section: "market",
+        title: "一季度风电、光伏新增并网规模保持较高水平",
+        date: "4月27日",
+        text: "国家能源局发布，一季度全国风电新增并网1577万千瓦，其中陆上风电1555万千瓦、海上风电21万千瓦；全国光伏新增并网4119万千瓦，其中集中式光伏1962万千瓦、分布式光伏2157万千瓦。同期，全国风电累计发电量3047亿千瓦时，光伏累计发电量2759亿千瓦时。",
+        source: "国家能源局",
+        url: "https://www.nea.gov.cn/20260427/09f3dbc015664a74b9cbe2444c4891bf/c.html"
+      },
+      {
+        section: "market",
+        title: "3月全国新增建档立卡新能源发电项目6228个",
+        date: "4月23日",
+        text: "国家能源局公告显示，2026年3月，全国新增建档立卡新能源发电项目共6228个。其中，风电项目44个，光伏发电项目6179个，生物质发电项目5个；光伏项目中，集中式光伏34个，工商业分布式光伏6145个。",
+        source: "国家能源局",
+        url: "https://www.nea.gov.cn/20260423/ba4fc99321fa4da19624eeeb2d5e4135/c.html"
+      },
+      {
+        section: "market",
+        title: "一季度绿证交易规模同比增长",
+        date: "4月27日",
+        text: "国家能源局介绍，一季度全国核发绿证6.98亿个，其中可交易绿证5.04亿个；全国交易绿证2.4亿个，同比增长21.19%。国家能源局表示，将完善绿证价格形成机制，研究制定绿证价格指数，推进绿证与碳排放核算等制度衔接。",
+        source: "国家能源局",
+        url: "https://www.nea.gov.cn/20260427/09f3dbc015664a74b9cbe2444c4891bf/c.html"
+      },
+      {
+        section: "tech",
+        title: "我国水深最深海上风电项目全容量并网发电",
+        date: "4月7日",
+        text: "华能山东半岛北L场址海上风电项目全容量并网发电。项目总装机50.4万千瓦，安装42台12兆瓦风力发电机组，场址中心离岸约70公里，水深52至56米，为我国水深最深的商运海上风电项目。项目应用四桩导管架基础结构、北斗高精度定位、智能辅助沉放、无人机与人工磁场协同等技术，为深远海复杂环境下海上风电建设提供工程实践。",
+        source: "新华网/中国经济网",
+        url: "https://www.ce.cn/xwzx/gnsz/gdxw/202604/t20260407_2885850.shtml",
+        image: "https://paper.people.com.cn/zgnyb/pc/pic/202604/13/2c35374a-75bf-45a1-bff2-878d287ffe22.jpg",
+        caption: "原图来源：中国能源报"
+      },
+      {
+        section: "tech",
+        title: "华能小湾水光互补项目正式投运",
+        date: "4月25日",
+        text: "华能小湾水光互补项目在云南正式投运。项目总装机容量543万千瓦，其中水电装机420万千瓦，光伏项目装机规模超123万千瓦。项目应用“水光智能协同”控制技术，实现区域内16个光伏场站与小湾水电厂打捆送出，并推进核心控制系统国产化应用。",
+        source: "中国华能",
+        url: "https://www.chng.com.cn/detail_jtyw/-/article/ccgb60va5Gwc/v/1310398.html"
+      },
+      {
+        section: "tech",
+        title: "全球单机容量最大16兆瓦漂浮式海上风电平台“三峡领航号”完成安装",
+        date: "5月2日完成安装，4月启动相关海上安装工作",
+        text: "由三峡集团牵头研发建设的全球单机容量最大16兆瓦漂浮式海上风电平台“三峡领航号”在广东阳江海域完成安装。该平台位于离岸超70公里、水深超50米的深远海海域，由16兆瓦超大容量风机、半潜式浮体平台和新型系泊系统组成。需要说明的是，该事项完成安装时间为5月2日；4月期间，“三峡领航号”已启动海上安装相关工作，因此可作为4月技术动态的延伸条目纳入，但正文中应明确时间边界。",
+        source: "中国三峡集团；补充来源：科技日报4月25日报道开始安装",
+        url: "https://www.ctg.com.cn/sxjt/xwzx55/zhxw23/2026050322191521305/index.html",
+        extraUrl: "https://www.stdaily.com/web/gdxw/2026-04/25/content_508171.html",
+        image: "https://www.ctg.com.cn/sxjt/imageDir/2026/05/img_pc_site/2026050322095199292_small.jpg",
+        caption: "原图来源：中国三峡集团"
+      },
+      {
+        section: "projects",
+        title: "华电阳江三山岛六海上风电场项目全面开工",
+        date: "4月13日",
+        text: "中国能建广东院EPC总承包建设的华电阳江三山岛六海上风电场项目于4月9日完成首台风机安装，标志着项目全面开工。项目位于广东省阳江市海陵岛南侧海域，总装机容量500兆瓦，拟安装31台单机容量16.2兆瓦风电机组。",
+        source: "中国能源建设股份有限公司",
+        url: "https://www.ceec.net.cn/art/2026/4/13/art_11019_2539201.html"
+      },
+      {
+        section: "projects",
+        title: "内蒙古库布齐沙漠基地鄂尔多斯600兆瓦光伏项目开工",
+        date: "4月27日",
+        text: "中国能建安徽电建二公司承建的内蒙古库布齐沙漠基地鄂尔多斯600兆瓦光伏项目于4月22日开工。项目位于内蒙古准格尔旗库布齐沙漠地带，是库布齐沙漠基地鄂尔多斯400万千瓦新能源项目组成部分，属于国家第二批“沙戈荒”大型风电光伏基地项目。",
+        source: "中国能源建设股份有限公司",
+        url: "https://www.ceec.net.cn/art/2026/4/27/art_11019_2539306.html"
+      },
+      {
+        section: "projects",
+        title: "三峡道孚亚日50万千瓦光伏项目实现全容量并网",
+        date: "4月29日发布，事件日期为4月28日",
+        text: "三峡四川能投道孚亚日50万千瓦光伏项目实现全容量并网。项目位于四川省甘孜藏族自治州道孚县，场址海拔4000米至4300米。项目全容量并网后，每年可提供清洁电能约9亿千瓦时。",
+        source: "中国三峡集团",
+        url: "https://www.ctg.com.cn/sxjt/xwzx55/zhxw23/2026042911302720826/index.html",
+        image: "https://www.ctg.com.cn/sxjt/imageDir/2026/04/img_pc_site/2026042911260576934_small.png",
+        caption: "原图来源：中国三峡集团"
+      },
+      {
+        section: "global",
+        title: "IRENA发布《2026年可再生能源装机容量统计》",
+        date: "4月1日",
+        text: "国际可再生能源署发布信息显示，2025年全球可再生能源新增装机692吉瓦，全球可再生能源总装机达到5149吉瓦，同比增长15.5%。其中，太阳能新增约511吉瓦，风电新增约159吉瓦，太阳能和风电合计占新增可再生能源装机的96.8%。报告显示，可再生能源在全球新增电力装机中继续保持主导地位，太阳能和风电仍是全球可再生能源扩张的主要来源。",
+        source: "IRENA",
+        url: "https://www.irena.org/News/pressreleases/2026/Apr/Near-700-GW-Surge-in-2025-Proves-Renewable-Energy-Resilience-ZH"
+      },
+      {
+        section: "impact",
+        title: "全国电动汽车充电基础设施总数达2148.1万个",
+        date: "4月27日",
+        text: "国家能源局发布数据显示，截至2026年3月底，我国电动汽车充电基础设施总数达到2148.1万个，同比增长46.9%。其中，公共充电设施486.3万个，私人充电设施1661.8万个。国家能源局表示，将围绕电动重卡充电等应用场景，推动充电设施扩规模、提质效，支撑交通能源绿色低碳转型。",
+        source: "国家能源局",
+        url: "https://www.nea.gov.cn/20260427/f54e9f54a0a541f7b4f78d9ae099a493/c.html"
+      },
+      {
+        section: "impact",
+        title: "可再生能源制氢从试点探索迈向规模化发展",
+        date: "4月27日",
+        text: "国家能源局介绍，截至2026年3月底，全国建成在建可再生能源制氢产能规模超过100万吨/年，其中建成投运超25万吨/年，在建超90万吨/年。风光氢耦合应用场景与绿色氢氨醇一体化模式正在协同探索。",
+        source: "国家能源局",
+        url: "https://www.nea.gov.cn/20260427/09f3dbc015664a74b9cbe2444c4891bf/c.html"
+      },
+      {
+        section: "supply",
+        title: "三峡阳江青洲五、七海上风电场海缆集中送出工程完成海缆敷设",
+        date: "4月28日",
+        text: "中国能建广东院EPC总承包建设的三峡阳江青洲五、青洲七海上风电场海缆集中送出工程于4月24日完成海缆敷设。项目建设内容包括一座±500千伏/2000兆瓦海上换流站、一回两根±500千伏直流海缆和一座陆上集控中心，海缆线路单根长超90公里，全长超180公里。",
+        source: "中国能源建设股份有限公司",
+        url: "https://www.ceec.net.cn/art/2026/4/28/art_11019_2539315.html"
+      },
+      {
+        section: "supply",
+        title: "中天科技三山岛±500千伏直流海缆通过装船交接试验",
+        date: "4月8日",
+        text: "中天科技集团发布，三山岛海上风电柔直输电工程首段大长度±500千伏直流海缆成品在中天科技海缆股份有限公司顺利通过装船交接试验。该工程规划总装机容量2吉瓦，海底电缆线路总长约116.5公里，其中首段长61.67公里。",
+        source: "中天科技集团",
+        url: "https://www.ztt.cn/news/show-53872.html",
+        image: "https://www.ztt.cn/upload/202604/08/202604081835386050.jpg",
+        caption: "原图来源：中天科技集团"
+      },
+      {
+        section: "supply",
+        title: "金风科技发布风储智联一体化解决方案",
+        date: "4月1日",
+        text: "金风科技发布“风储智联一体化解决方案”，将风储直流耦合技术、AI经济配储与智能交易决策融合为市场化运营体系，服务新能源场站风储融合、市场交易与储能配置场景。",
+        source: "金风科技",
+        url: "https://www.goldwind.com/cn/news/focus-1227223117278140416/",
+        image: "https://www.goldwind.com/data/uploads/bdc_content2026/41227222747080540160.png",
+        caption: "原图来源：金风科技"
+      }
+    ];
+
+    const charts = {
+      capacity: {
+        title: "累计装机结构",
+        desc: "截至2026年3月底，全国可再生能源装机23.95亿千瓦，其中风电6.55亿千瓦，光伏12.41亿千瓦。",
+        unit: "亿千瓦",
+        items: [
+          ["风电", 6.55],
+          ["光伏", 12.41],
+          ["风光合计", 18.98],
+          ["可再生能源", 23.95]
+        ]
+      },
+      added: {
+        title: "一季度新增并网",
+        desc: "一季度全国可再生能源新增装机5893万千瓦；风电新增1577万千瓦，光伏新增4119万千瓦。",
+        unit: "万千瓦",
+        items: [
+          ["风电新增", 1577],
+          ["光伏新增", 4119],
+          ["可再生新增", 5893]
+        ]
+      },
+      projects: {
+        title: "3月新增建档立卡项目",
+        desc: "2026年3月全国新增建档立卡新能源发电项目6228个，光伏项目占主要部分。",
+        unit: "个",
+        items: [
+          ["风电", 44],
+          ["光伏", 6179],
+          ["生物质", 5]
+        ]
+      },
+      green: {
+        title: "一季度绿证市场",
+        desc: "一季度全国核发绿证6.98亿个，其中可交易绿证5.04亿个；全国交易绿证2.4亿个。",
+        rings: [
+          ["核发绿证", "6.98亿个", 100],
+          ["可交易绿证", "5.04亿个", 72],
+          ["交易绿证", "2.4亿个", 34],
+          ["同比增长", "21.19%", 21]
+        ]
+      }
+    };
+
+    function createStory(story, index) {
+      const article = document.createElement("article");
+      article.className = `story collapsed${story.image ? " has-image" : ""}`;
+      const image = story.image ? `
+        <figure class="story-media">
+          <img src="${story.image}" alt="${story.title}" loading="lazy" onerror="this.closest('.story-media').remove(); this.closest('.story')?.classList.remove('has-image');">
+          <figcaption>${story.caption || "原图来源：原文页面"}</figcaption>
+        </figure>` : "";
+      const extra = story.extraUrl ? `<br><a href="${story.extraUrl}" target="_blank" rel="noopener">补充来源</a>` : "";
+      article.innerHTML = `
+        ${image}
+        <div class="story-content">
+          <h3>${index}.${story.title}</h3>
+          <div class="date">新闻日期：${story.date}</div>
+          <p class="story-text">${story.text}</p>
+          <button class="more" type="button">展开全文</button>
+          <div class="source">来源：${story.source}<br><a href="${story.url}" target="_blank" rel="noopener">${story.url}</a>${extra}</div>
+        </div>`;
+      const btn = article.querySelector(".more");
+      btn.addEventListener("click", () => {
+        article.classList.toggle("collapsed");
+        btn.textContent = article.classList.contains("collapsed") ? "展开全文" : "收起";
+      });
+      return article;
+    }
+
+    function renderStories() {
+      const counters = {};
+      stories.forEach(story => {
+        counters[story.section] = (counters[story.section] || 0) + 1;
+        document.getElementById(story.section).appendChild(createStory(story, counters[story.section]));
+      });
+    }
+
+    function formatNumber(value) {
+      return Number.isInteger(value) ? String(value) : value.toFixed(2).replace(/0$/, "").replace(/\.0$/, "");
+    }
+
+    function renderBars(chart) {
+      const max = Math.max(...chart.items.map(item => item[1]));
+      return chart.items.map(([label, value]) => {
+        const width = `${Math.max(1, value / max * 100)}%`;
+        return `
+          <div class="bar-row">
+            <div class="bar-label">${label}</div>
+            <div class="bar-track"><span class="bar-fill" style="--w:${width}"></span></div>
+            <div class="bar-value">${formatNumber(value)}${chart.unit}</div>
+          </div>`;
+      }).join("");
+    }
+
+    function renderRings(chart) {
+      return `<div class="ring-grid">${chart.rings.map(([label, value, percent]) => {
+        const offset = 251 - 251 * percent / 100;
+        return `
+          <div class="ring">
+            <svg viewBox="0 0 100 100" aria-hidden="true">
+              <circle class="track" cx="50" cy="50" r="40"></circle>
+              <circle class="meter" cx="50" cy="50" r="40" style="--offset:${offset}"></circle>
+            </svg>
+            <b>${value}</b>
+            <span>${label}</span>
+          </div>`;
+      }).join("")}</div>`;
+    }
+
+    function setChart(key) {
+      const chart = charts[key];
+      document.getElementById("chartTitle").textContent = chart.title;
+      document.getElementById("chartDesc").textContent = chart.desc;
+      document.getElementById("chartBody").innerHTML = chart.items ? renderBars(chart) : renderRings(chart);
+      document.querySelectorAll(".market-tabs button").forEach(button => {
+        button.classList.toggle("active", button.dataset.chart === key);
+      });
+      requestAnimationFrame(() => document.getElementById("marketPanel").classList.add("in-view"));
+    }
+
+    function initObservers() {
+      const panel = document.getElementById("marketPanel");
+      const panelObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) panel.classList.add("in-view");
+        });
+      }, { threshold: .2 });
+      panelObserver.observe(panel);
+
+      const links = Array.from(document.querySelectorAll(".nav a"));
+      const sections = links.map(link => document.querySelector(link.getAttribute("href")));
+      window.addEventListener("scroll", () => {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        document.getElementById("progress").style.width = `${max > 0 ? window.scrollY / max * 100 : 0}%`;
+        document.getElementById("toTop").classList.toggle("show", window.scrollY > 500);
+        let active = sections[0];
+        sections.forEach(section => {
+          if (section.getBoundingClientRect().top <= 78) active = section;
+        });
+        links.forEach(link => link.classList.toggle("active", active && link.getAttribute("href") === `#${active.id}`));
+      }, { passive: true });
+    }
+
+    renderStories();
+    setChart("capacity");
+    document.querySelectorAll(".market-tabs button").forEach(button => {
+      button.addEventListener("click", () => {
+        document.getElementById("marketPanel").classList.remove("in-view");
+        setChart(button.dataset.chart);
+      });
+    });
+    document.getElementById("toTop").addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+    initObservers();
+  </script>
+</body>
+</html>
